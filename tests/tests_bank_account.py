@@ -22,7 +22,9 @@ class BankAccountTests(unittest.TestCase):
         new_balance = self.account.deposit(500)
         self.assertEqual(new_balance, 1500, "El saldo debería ser 1500")
 
-    def test_withdraw(self):
+    @patch('src.bank_account.datetime')
+    def test_withdraw(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 10
         new_balance = self.account.withdraw(200)
         self.assertEqual(new_balance, 800, "El saldo debería ser 800")
     

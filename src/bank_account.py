@@ -24,7 +24,7 @@ class BankAccount:
         
         now = datetime.now()
         if now.hour < 8 or now.hour > 17:
-            raise WithdrawalTimeRestrictionError("Withdrawals are only allowed between 8am and 5pm")
+            raise WithdrawalTimeRestrictionError("Withdrawals are only allowed from 8am to 5pm")
         
         if amount > 0:
             self.balance -= amount
